@@ -26,7 +26,15 @@ namespace OpeningHours.SampleWeb
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseOpeningHours(9, 18);
+            // app.UseOpeningHours(9, 16);
+
+            app.UseOpeningHours(c => 
+            {
+                c.FromHour = 9;
+                c.ToHour = 16;
+                c.Message = "This web works from 9 to 16h every day";
+                c.ClosedWeekdays = new[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
+            });
 
             app.UseRouting();
 

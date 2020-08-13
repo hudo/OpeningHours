@@ -21,7 +21,7 @@ namespace OpeningHours
             set => _toHour = ValidateTime(value);
         }
 
-        public string Message { get; set; } 
+        public string Message { get; set; } = "The web is closed";
 
         public int? LunchBreakAtHour
         {
@@ -36,6 +36,8 @@ namespace OpeningHours
         }
 
         public int StatusCode { get; set; } = 412; // precondition failed? 
+
+        public DayOfWeek[] ClosedWeekdays { get; set; } = new DayOfWeek[0];
 
         private int ValidateTime(int value, int maxValue = 24) => value >= 0 && value <= maxValue ? value : throw new ArgumentOutOfRangeException($"Value can be from 0 to {maxValue}");
 
