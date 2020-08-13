@@ -32,8 +32,10 @@ namespace OpeningHours.SampleWeb
             {
                 c.FromHour = 9;
                 c.ToHour = 16;
-                c.Message = "This web works from 9 to 16h every day";
+                c.Message = "This web works from 9 to 16h every day except Saturday and Sunday";
                 c.ClosedWeekdays = new[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
+                c.LunchBreakAtHour = 12;
+                c.LunchBreakDurationMin = 30;
             });
 
             app.UseRouting();

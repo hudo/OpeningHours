@@ -12,8 +12,20 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         app.UseDeveloperExceptionPage();
     }
 
-    app.UseOpeningHours(9, 18);
+    app.UseOpeningHours(9, 17);
 
-    // rest of app ...
+    // or full configuration:
+
+    app.UseOpeningHours(c => 
+    {
+        c.FromHour = 9;
+        c.ToHour = 17;
+        c.Message = "This web works from 9 to 16h every day except Saturday and Sunday";
+        c.ClosedWeekdays = new[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
+        c.LunchBreakAtHour = 12;
+        c.LunchBreakDurationMin = 30;
+    });
+
+    // rest of the app ...
 }
 ```
