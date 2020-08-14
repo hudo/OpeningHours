@@ -5,9 +5,14 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpeningHours", "OpeningHours\OpeningHours.csproj", "{C9898C24-FDA0-4C0F-9605-322580C78907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpeningHours.Tests", "OpeningHours.Tests\OpeningHours.Tests.csproj", "{121D78CB-BF37-4298-A36C-F14FA7B369FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpeningHours.Tests", "OpeningHours.Tests\OpeningHours.Tests.csproj", "{121D78CB-BF37-4298-A36C-F14FA7B369FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpeningHours.SampleWeb", "OpeningHours.SampleWeb\OpeningHours.SampleWeb.csproj", "{67F3D86E-444B-4EE2-8D5B-D2557C3F43E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpeningHours.SampleWeb", "OpeningHours.SampleWeb\OpeningHours.SampleWeb.csproj", "{67F3D86E-444B-4EE2-8D5B-D2557C3F43E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2CAF14C-FFD7-4172-A15E-6B5310575AD9}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,6 +12,10 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         app.UseDeveloperExceptionPage();
     }
 
+    app.UseStaticFiles();
+
+    // before all other app components but after UseStaticFiles
+
     app.UseOpeningHours(9, 17);
 
     // or full configuration:
@@ -20,12 +24,22 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         c.FromHour = 9;
         c.ToHour = 17;
-        c.Message = "This web works from 9 to 16h every day except Saturday and Sunday";
+        c.Message = "This web works from 9 to 17h every day except Saturday and Sunday";
         c.ClosedWeekdays = new[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
         c.LunchBreakAtHour = 12;
         c.LunchBreakDurationMin = 30;
+        c.StatusCode = 412;
+        c.Bribe = "50$ tip";
     });
 
-    // rest of the app ...
+    // rest of the app configuration...
 }
 ```
+
+Outside of opening hours all requests will be responded with **status code 412 and message** (all configurable).  
+
+To serve request outside of opening hours provide request header `OH-Bribe` with configured value (if any).   
+
+Each blocked request will return headers:  
+- `OH-ServerTime` - current server time  
+- `OH-OpensAt` - when will web open its service

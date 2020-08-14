@@ -36,6 +36,8 @@ namespace OpeningHours.SampleWeb
                 c.ClosedWeekdays = new[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
                 c.LunchBreakAtHour = 12;
                 c.LunchBreakDurationMin = 30;
+                c.StatusCode = 412;
+                c.Bribe = "50$ tip";
             });
 
             app.UseRouting();
