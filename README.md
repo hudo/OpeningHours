@@ -47,3 +47,7 @@ Each blocked request will return headers:
 # Package 
 
 Nuget: https://www.nuget.org/packages/OpeningHours
+
+# Credits
+
+Big thanks to [Jasen](https://www.instagram.com/jkekanov/) for inspiration!
