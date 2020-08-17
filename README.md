@@ -43,3 +43,7 @@ To serve request outside of opening hours provide request header `OH-Bribe` with
 Each blocked request will return headers:  
 - `OH-ServerTime` - current server time  
 - `OH-OpensAt` - when will web open its service
+
+# Package 
+
+Nuget: https://www.nuget.org/packages/OpeningHours
