@@ -45,7 +45,26 @@ Each blocked request will return headers:
 - `OH-ServerTime` - current server time  
 - `OH-OpensAt` - when will web open its service
 
+## To do
+
+- [x] Basic functionality with builder extension
+- [x] Weekends
+- [ ] Lunch break
+- [x] Holidays
+- [x] Bribe request headers
+- [ ] Refactor to support minutes
+- [ ] Better response headers
+- [x] Sample website
+- [ ] CI/CD pipeline
+- [ ] Deploy sample website to Azure free website
+- [ ] Unit tests
+- [ ] JSON configuration
+- [ ] Support for images as response
+- [ ] Take a break from this hard and important work
+
 # Package 
+
+Current version: **alpha** 
 
 Nuget: https://www.nuget.org/packages/OpeningHours
 
