@@ -41,6 +41,8 @@ namespace OpeningHours
 
         public DayOfWeek[] ClosedWeekdays { get; set; } = new DayOfWeek[0];
 
+        public DateTime[] Holidays { get; set; } = new DateTime[0];
+
         private int ValidateTime(int value, int maxValue = 24) => value >= 0 && value <= maxValue 
             ? value 
             : throw new ArgumentOutOfRangeException($"Value can be from 0 to {maxValue}");

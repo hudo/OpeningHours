@@ -21,7 +21,8 @@ namespace OpeningHours
 
         public async Task InvokeAsync(HttpContext context)
         {
-            if (HasBribe(context.Request) || IsNotWeekend() && IsDuringBusinessHours() && IsNotLunchBreak())
+            if (HasBribe(context.Request) || 
+                IsNotWeekend() && IsDuringBusinessHours() && IsNotLunchBreak() && IsNotHoliday())
             {
                 await _next(context);
             }
@@ -42,6 +43,9 @@ namespace OpeningHours
                    (_settings.FromHour > _settings.ToHour && SystemTime.Now().Hour >= _settings.ToHour);  // to > from, eg 20-4
 
         private bool IsNotLunchBreak() => true; // todo
+
+        private bool IsNotHoliday() => _settings.Holidays != null
+            && !_settings.Holidays.Any(day => day != SystemTime.Now().Date);
 
         private bool HasBribe(HttpRequest request) => 
             !string.IsNullOrEmpty(_settings.Bribe) 

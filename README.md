@@ -28,6 +28,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         c.ClosedWeekdays = new[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
         c.LunchBreakAtHour = 12;
         c.LunchBreakDurationMin = 30;
+        c.Holidays = new[] { new DateTime(2020, 1, 1), new DateTime(2020, 3, 17) };
         c.StatusCode = 412;
         c.Bribe = "50$ tip";
     });
