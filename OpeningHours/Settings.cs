@@ -4,53 +4,32 @@ namespace OpeningHours
 {
     public class Settings
     {
-        private int _fromHour;
-        private int _toHour;
-        private int? _lunchBreakAtHour;
         private int? _lunchBreakDurationMin = 30;
 
-        public int FromHour
-        {
-            get => _fromHour;
-            set => _fromHour = ValidateTime(value);
-        }
-
-        public int ToHour
-        {
-            get => _toHour;
-            set => _toHour = ValidateTime(value);
-        }
+        public Time FromHour { get; set; }
+        public Time ToHour { get; set; }
 
         public string Message { get; set; } = "The web is closed";
 
-        public int? LunchBreakAtHour
-        {
-            get => _lunchBreakAtHour;
-            set => _lunchBreakAtHour = ValidateTime(value.GetValueOrDefault(-1));
-        }
+        public Time LunchBreakAtHour { get; set; }
 
         public int? LunchBreakDurationMin 
         { 
-            get => _lunchBreakDurationMin; 
-            set => _lunchBreakDurationMin = ValidateTime(value.GetValueOrDefault(-1), 60*24); 
-        }
+            get => _lunchBreakDurationMin;
+            set => _lunchBreakDurationMin = value.GetValueOrDefault(-1) < 60 * 25
+                ? value
+                : throw new ArgumentOutOfRangeException("Too much break for lunch");
+    }
 
         public int StatusCode { get; set; } = 412; // precondition failed? 
 
+        /// <summary>
+        /// Serve requests outside of business hours
+        /// </summary>
         public string Bribe { get; set; }
 
         public DayOfWeek[] ClosedWeekdays { get; set; } = new DayOfWeek[0];
 
         public DateTime[] Holidays { get; set; } = new DateTime[0];
-
-        private int ValidateTime(int value, int maxValue = 24) => value >= 0 && value <= maxValue 
-            ? value 
-            : throw new ArgumentOutOfRangeException($"Value can be from 0 to {maxValue}");
-
-        internal void ValidateAllTimes()
-        {
-            ValidateTime(FromHour, 24);
-            ValidateTime(ToHour, 24);
-        }
     }
 }

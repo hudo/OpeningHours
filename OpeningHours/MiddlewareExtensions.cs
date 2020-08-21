@@ -16,8 +16,6 @@ namespace OpeningHours
 
             configure(settings);
 
-            settings.ValidateAllTimes();
-
             SetupMiddleware(builder, settings);
         }
 

@@ -30,11 +30,11 @@ namespace OpeningHours.SampleWeb
 
             app.UseOpeningHours(c => 
             {
-                c.FromHour = 9;
-                c.ToHour = 16;
+                c.FromHour = 8.5;
+                c.ToHour = "16:15";
                 c.Message = "This web works from 9 to 16h every day except Saturday and Sunday";
                 c.ClosedWeekdays = new[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
-                c.LunchBreakAtHour = 12;
+                c.LunchBreakAtHour = 13;
                 c.LunchBreakDurationMin = 30;
                 c.Holidays = new[] { new DateTime(2020, 1, 1), new DateTime(2020, 3, 17) };
                 c.StatusCode = 412;

@@ -38,7 +38,7 @@ namespace OpeningHours
 
         private bool IsNotWeekend() => !_settings.ClosedWeekdays.Contains(SystemTime.Now().DayOfWeek);
 
-        private bool IsDuringBusinessHours() => SystemTime.Now().Hour >= _settings.FromHour
+        private bool IsDuringBusinessHours() => (Time)SystemTime.Now() >= _settings.FromHour
                 && (_settings.FromHour < _settings.ToHour && SystemTime.Now().Hour <= _settings.ToHour) || // from < to, eg 8-16
                    (_settings.FromHour > _settings.ToHour && SystemTime.Now().Hour >= _settings.ToHour);  // to > from, eg 20-4
 
