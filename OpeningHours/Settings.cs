@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Structures.Time;
+using System;
 
 namespace OpeningHours
 {

@@ -13,6 +13,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 .vs/
+.vscode/
 
 # Files built by Visual Studio
 *.pdb
